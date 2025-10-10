@@ -27,3 +27,14 @@ finetuning for **classification** tasks.
 
     - In instruction-finetuning, the labeled dataset consists of instruction and answer pairs, such as a query to translate a text accompanied by the correctly translated text. 
     - In classification finetuning, the labeled dataset consists of texts and associated class labels, for example, emails associated with spam and non-spam labels.
+
+- (Moderns) LLM rely on the Transformer Architecture, introduce by the Machine Learning Paper "Attention is all you need" - 2017. The Transformer Arch is based of two components : an Encoder and a Decoder. Both the encoder and decoder consist of many layers connected by
+a so-called self-attention mechanism.
+
+
+**BERT** -> Masked Word Prediction
+**GPT** -> Text Generation (G from Generative)
+
+------------------------------------
+
+Zero Shot Prompting vs Few Shots Prompting
