@@ -30,10 +30,12 @@
 
 - (Moderns) LLM rely on the Transformer Architecture, introduce by the Machine Learning Paper "Attention is all you need" - 2017. The Transformer Arch is based of two components : an Encoder and a Decoder. Both the encoder and decoder consist of many layers connected by a so-called self-attention mechanism.
 
+![alt text](image-3.png)
+
 **BERT** -> Masked Word Prediction
 **GPT** -> Text Generation (G from Generative)
 
-Zero Shot Prompting vs Few Shots Prompting
+Zero Shot Prompting (No Examples) vs Few Shots Prompting (Few Examples)
 
 ---
 
@@ -41,7 +43,7 @@ Zero Shot Prompting vs Few Shots Prompting
 
 Big Dataset with >3 Billions token, CommonCrawl (filtered) being 410 Billions
 
-Token -> unit of text that model reads, usually a word or root of a word, 4 to 5 letters
+**Token** : unit of text that model reads, usually a word or root of a word, 4 to 5 letters
 
 Scale and diversity of traiing allows models to perform on diverse tasks they have not been explicitly programmed for.
 
@@ -63,7 +65,14 @@ Its a from or self-supervised learning, self-labeling. We dont collect labels fo
 Original Transformer : 6 Encoder/Decoder block
 GPT3: 96 Transformer Layer and 175B params
 
-GPT Architecture only use the decoder portion of the transformer, but is still capable to do language translation without being explicitely being trained for this task.
+GPT Architecture only use the decoder portion of the transformer, but is still capable to do language translation without being explicitely being trained for this task : **Emergent Behavior**
+
+-> Learning the pattern 
 
 
 *But it's actually very similar and making sense, it's like just predicting what's the next token more likely to be, regardless of the language*
+
+
+### Steps of Building a Large Language Model
+
+![alt text](image-2.png)
