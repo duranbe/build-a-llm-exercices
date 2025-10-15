@@ -52,8 +52,18 @@ Meta's LLaMa expanded dataset to Arxiv and StackExchange
 
 GPT stands for Generative Pretrained Transformer
 
-GPT Models are trained on next-word prediction task, meaning given a set of wors they predict the next one
+GPT Models are trained on next-word prediction task, meaning given a set of words they predict the next one
 
 ![alt text](image-1.png)
 
-Its a from or self-supervised learning, self-labeling. We dont collect labels for the data. Since we are looking to predict the next words we can infer, we rely on the text structure.
+Its a from or self-supervised learning, self-labeling. We dont collect labels for the data. Since we are looking to predict the next words we can infer, we rely on the text structure. 
+
+**Autoregressive** : Autoregressive models incorporate their previous output as inputs for future predictions
+
+Original Transformer : 6 Encoder/Decoder block
+GPT3: 96 Transformer Layer and 175B params
+
+GPT Architecture only use the decoder portion of the transformer, but is still capable to do language translation without being explicitely being trained for this task.
+
+
+*But it's actually very similar and making sense, it's like just predicting what's the next token more likely to be, regardless of the language*
