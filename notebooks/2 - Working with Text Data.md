@@ -37,6 +37,31 @@ On removing whitespaces :
 Basic Tokenizer by splitting :
 `['I', 'HAD' .... '--', 'me', 'to', 'hear', 'that', ',', 'in']`
 
-Once we have tokens we need to map them to a token which is an integer representation such that it can be understand by the model. This is the vocabulary
+Once we have tokens we need to map them to a token which is an integer representation such that it can be understand by the model. -> This is the vocabulary
 
 ![alt text](image-5.png)
+
+
+**How to handle unkown words in the vocab?**
+
+### Adding special context tokens
+
+`<|unk|>`
+`<|endoftext|>`
+
+![](image-6.png)
+
+`<|unk|>` represents the unknown words of the vocabulary (*but only at inference time? does embedding model training needs to fix this?*)
+
+`<|endoftext|>` represents the end of a text, useful when LLM trained on corpus of texts, since they are being concatenated for training while being unrelated
+
+Depending on the LLM, researches have added other tokens : 
+
+`[BOS]`: Beginning of sequence -> Start of text
+`[EOS]`: End of sequence -> End of text
+`[PAD]`: Padding -> When training LLMs with batch sizes larger than one, with text smaller than other ones. Those are being padded with `[PAD]`
+
+
+GPT Models only use `<|endoftext|>` token for simplicity. Furthermore the GPT Tokenizer does not use the `<|unk|>` unknown token as it's leveraging Byte Pair Encoding, which breaks down words into subword units.
+
+## Byte Pair Endoding
