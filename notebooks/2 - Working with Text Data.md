@@ -65,3 +65,8 @@ Depending on the LLM, researches have added other tokens :
 GPT Models only use `<|endoftext|>` token for simplicity. Furthermore the GPT Tokenizer does not use the `<|unk|>` unknown token as it's leveraging Byte Pair Encoding, which breaks down words into subword units.
 
 ## Byte Pair Endoding
+Vocabulary : 50,257 
+The BPE tokenizer is capable of tokenizing unknown words by using subwords token
+
+![alt text](image-7.png)
+
