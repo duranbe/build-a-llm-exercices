@@ -70,3 +70,14 @@ The BPE tokenizer is capable of tokenizing unknown words by using subwords token
 
 ![alt text](image-7.png)
 
+## Data sampling using sliding window
+
+Since LLMs are trained to predict next word in a sentence we need to prepare a sliding window dataloader
+
+```
+context_size = 4 # How many tokens in the input
+```
+
+![](image-8.png)
+
+Tensor size :  text_size -1 * context_size ? 
