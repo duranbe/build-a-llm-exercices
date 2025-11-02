@@ -80,4 +80,22 @@ context_size = 4 # How many tokens in the input
 
 ![](image-8.png)
 
-Tensor size :  text_size -1 * context_size ? 
+Tensor size :  (text_size/context_size) by context_size ? 
+
+
+a Pytorch Dataset implements 
+
+` __init__`
+`__len__`
+`__getitem__`
+
+
+2 Datasets are created : Train, Test.
+
+Each will be associated to a dataloader
+
+
+![alt text](image-9.png)
+
+
+Stride increase to avoid overlap between the batches, more overlap could lead to increased overfitting 
