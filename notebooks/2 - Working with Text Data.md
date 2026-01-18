@@ -69,7 +69,6 @@ See Also :
 GPT Models only use `<|endoftext|>` token for simplicity. Furthermore the GPT Tokenizer does not use the `<|unk|>` unknown token as it's leveraging Byte Pair Encoding, which breaks down words into subword units.
 
 ## Byte Pair Endoding
-Vocabulary : 50,257 
 The BPE tokenizer is capable of tokenizing unknown words by using subwords token.
 
 ![alt text](image-7.png)
@@ -108,4 +107,41 @@ Each will be associated to a dataloader
 ![alt text](image-9.png)
 
 
-Stride increase to avoid overlap between the batches, more overlap could lead to increased overfitting 
+Stride increase to avoid overlap between the batches, more overlap could lead to increased overfitting
+
+
+## Token Embeddings
+
+![alt text](image-10.png)
+
+Like every NN traing with backpropagation, needs to be initialized with random value.
+
+Embeddings are an efficient way to store and encode tensor into vector space
+
+From Claude : Why Embeddings Instead of One-Hot?
+
+Dimensionality: One-hot vectors are huge and sparse (50,000 dimensions). Embeddings are dense and compact (typically 256-4096 dimensions).
+
+Semantic meaning: One-hot encoding treats all words as equally different. 
+Embeddings learn that "cat" and "dog" are closer than "cat" and "democracy" by placing them closer in vector space.
+
+Trainability: The embedding values are learned parameters that improve as the model trains to solve its task.
+
+
+Embedding layers perform look-up operation.
+vocab_size : number of tokens in vocabulary
+dimension : dimension of the vector space
+
+The Trade-off
+Too small:
+
+Can't capture enough semantic distinctions
+Words forced to share similar representations even when meanings differ
+
+Too large:
+
+Wasted parameters (diminishing returns)
+Harder to train efficiently
+May overfit on smaller datasets
+
+Common Ratio : 1 to 5% of the vocab size
