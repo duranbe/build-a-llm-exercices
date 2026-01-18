@@ -61,14 +61,24 @@ Depending on the LLM, researches have added other tokens :
 `[EOS]`: End of sequence -> End of text
 `[PAD]`: Padding -> When training LLMs with batch sizes larger than one, with text smaller than other ones. Those are being padded with `[PAD]`
 
+See Also :
+`<s>` and `</s>` for sentence
+`[INST]` and `[/INST]` for Instruction, in conversations
+
 
 GPT Models only use `<|endoftext|>` token for simplicity. Furthermore the GPT Tokenizer does not use the `<|unk|>` unknown token as it's leveraging Byte Pair Encoding, which breaks down words into subword units.
 
 ## Byte Pair Endoding
 Vocabulary : 50,257 
-The BPE tokenizer is capable of tokenizing unknown words by using subwords token
+The BPE tokenizer is capable of tokenizing unknown words by using subwords token.
 
 ![alt text](image-7.png)
+
+
+This is being done by doing Bi-Gram encoding. Using a list of words, it's progressively merging every most frequent bi-gram at each training step, until it reach desired vocabulary size.
+
+See https://docs.mistral.ai/cookbooks/concept-deep-dive-tokenization-tokenizer#bpe-and-more
+
 
 ## Data sampling using sliding window
 
