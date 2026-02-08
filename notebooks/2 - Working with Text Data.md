@@ -175,3 +175,5 @@ Tok.  Pos
 Modern Days : 
 Rotated Position Encoding (RoPE)
 AliBi
+
+GPT Models use absolute positional encoding and are optimized during model training
