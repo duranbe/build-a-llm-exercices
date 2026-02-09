@@ -23,3 +23,8 @@ Issues and limitations:
 
 ## 3.2 
 
+Bahdanau attention -> self attention?
+
+Bahdanau attention modifies the encoder/decoder RNN such that the decoder can access selectively different parts of the input sequence.
+
+![alt text](image-12.png)
