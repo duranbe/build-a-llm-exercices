@@ -28,3 +28,10 @@ Bahdanau attention
 Bahdanau attention modifies the encoder/decoder RNN such that the decoder can access selectively different parts of the input sequence.
 
 ![alt text](image-12.png)
+
+This selection is done using Attention Weights 
+
+Self Attention is a mechanism that allow each position in input to attend all positions in same sequence when computing representation of a sequence.
+
+
+## 3.3
