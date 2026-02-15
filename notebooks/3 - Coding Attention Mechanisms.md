@@ -35,3 +35,20 @@ Self Attention is a mechanism that allow each position in input to attend all po
 
 
 ## 3.3
+
+### Self-Attention
+-> Self refers to the mechanism ability to compute attention weights by relating the different positions within a single input sequence. Learns relationships and dependencies between the elements of the single sequence
+
+Introspection?
+
+
+Example :
+
+For input x2 
+
+![alt text](image-13.png)
+
+```
+1 -> t
+z2 = a21*x1 + a22*x2 + a23*x3 + ... + a2t * xt
+```
