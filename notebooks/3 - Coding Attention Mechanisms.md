@@ -75,6 +75,8 @@ Once the attention score is computed -> we can get the attention weights by norm
 Common : softmax, 
 ![alt text](image-18.png)
 
+![alt text](image-22.png)
+
 Also ensure result is positive
 
 ![alt text](image-19.png)
@@ -113,3 +115,18 @@ all_context_vecs
 When doing matrix multiplication, ouput of is of size rows of first column by number of columns of second matrix
 
 ## 3.4 Self Attention with trainable weights
+
+Also called `scalde dot-product attention`
+
+Trainable weights are key as they are crucial for the model to learn how to produce "good" context
+
+Introducing trainable weights matrices 
+
+```
+Wq -> query
+Wk -> key 
+Wv -> value 
+
+```
+
+![alt text](image-23.png)
