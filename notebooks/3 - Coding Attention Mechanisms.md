@@ -130,3 +130,79 @@ Wv -> value
 ```
 
 ![alt text](image-23.png)
+
+Query vector q(2) is computed with ` x(2) @ Wq ` or ` Wq @ x(2)`
+Key Vector k(1) is computed with ` x(1) @Wk`
+Value vector v(1) is computed with ` x(1)@Wv`
+
+Note : Vector size changed (3 -> 2), but for GPT-like models, input and outputs dimensions usually remains the same. 
+
+```
+query_2 = x_2 @ W_query 
+key_2 = x_2 @ W_key 
+value_2 = x_2 @ W_value
+```
+
+Size : (1, 2) = (1,3)@(3,2)
+
+⚠️ Weight Parameters vs Attention Weights
+W is Weight Paramerts, optimized during NN training
+Attention eights determine the extend to which a context vector depends on the different part of the input.
+
+Weight Parameters : Fundamental, learned coefficients that define the network connections.
+Attention weights : Dynamic, context-specific values, related to input.
+
+
+```
+keys = inputs @ W_key
+values = inputs @ W_value
+
+```
+
+![alt text](image-24.png)
+
+Computing attention score
+Dot product computation, similar to simple self attention but this time instead of computing 
+`attn_scores = inputs @ inputs.T`
+we use the the query and key obtained by transforming inputs via respective weights matrices 
+
+`attn_scores = query @ keys.T`
+
+Note :
+
+Dot product is defined between two vectors of same lengths . Matrix product is defined between two matrices. 
+
+
+Then we get the attention weight by scaling with softmax, but we now scale the attention scores by diving them by the square root of the embedding dimension of the key (here it's 2).
+-> improve training performance by avoiding small gradients.
+-> larger embeddings (>12K GPT-3), results in very small gradients during backprop due to softmax. With dot product increase, softmax function behaves like a step function, gradient goes near zero.
+
+Computing context vector 
+
+`context_vector = attn_scores @ values`
+
+
+#### Why Query, Key and Value ?
+
+-> Analogy to Information Retrieval and Databases
+ -> Store, Search, Retrieve
+
+ Query : Search
+ Key : Store 
+ Value : Retrieve
+
+Query -> Analogous ot a Search Query, current item.
+Key -> database key used for indexing and searching.
+Value -> Similar to key-value, once the model determines which keys are most matching the query, retrieves the values.
+
+![alt text](image-25.png)
+
+
+```python
+       queries = input @ self.W_query
+        keys = input @ self.W_key
+        values = input @ self.W_value
+        attn_scores = queries @ keys.T
+        attn_weights = torch.softmax(attn_scores/self.d_out**0.5, dim = -1)
+        context_vec = attn_weights @ values
+```
