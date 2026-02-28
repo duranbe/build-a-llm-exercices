@@ -206,3 +206,9 @@ Value -> Similar to key-value, once the model determines which keys are most mat
         attn_weights = torch.softmax(attn_scores/self.d_out**0.5, dim = -1)
         context_vec = attn_weights @ values
 ```
+
+### 3.5 Hiding Future words with Causal Attention
+
+- Causal Attention, aka Masked Attention
+
+Restrict model to only consider previous and current inputs in sequence
