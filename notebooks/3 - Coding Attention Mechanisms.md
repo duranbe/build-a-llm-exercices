@@ -214,3 +214,9 @@ Value -> Similar to key-value, once the model determines which keys are most mat
 Restrict model to only consider previous and current inputs in sequence
 
 - We mask weight above diagonal and recompute such that hte attention weights sums to 1 for each row (=input)
+
+#### 3.5.2 Dropout
+
+- Used only during training, to avoid overfitting
+- Random
+- In GPT-2, but not so used anymore
