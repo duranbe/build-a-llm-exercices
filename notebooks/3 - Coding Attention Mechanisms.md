@@ -220,3 +220,11 @@ Restrict model to only consider previous and current inputs in sequence
 - Used only during training, to avoid overfitting
 - Random
 - In GPT-2, but not so used anymore
+- `torch.nn.Dropout(0.5)`
+
+#### 3.5.3
+- Register buffer on device
+
+
+
+#### 3.6 Multi Head Attention
