@@ -228,3 +228,6 @@ Restrict model to only consider previous and current inputs in sequence
 
 
 #### 3.6 Multi Head Attention
+
+- Multi Head -> Dividing attention mechanism into heads operating independently. Single causel-attenion -> single head -> only one set of attention weights
+
